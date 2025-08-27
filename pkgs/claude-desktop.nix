@@ -35,13 +35,14 @@ in
     ];
 
     desktopItem = makeDesktopItem {
-      name = "claude-desktop";
+      name = "claude";
       exec = "claude-desktop %u";
-      icon = "claude-desktop";
+      icon = "claude";
       type = "Application";
       terminal = false;
       desktopName = "Claude";
       genericName = "Claude Desktop";
+      startupWMClass = "claude";
       categories = [
         "Office"
         "Utility"
@@ -164,7 +165,7 @@ in
 
       # Install .desktop file
       mkdir -p $out/share/applications
-      install -Dm0644 {${desktopItem},$out}/share/applications/$pname.desktop
+      install -Dm0644 ${desktopItem}/share/applications/claude.desktop $out/share/applications/claude.desktop
 
       # Create wrapper
       mkdir -p $out/bin
