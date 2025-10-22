@@ -472,20 +472,21 @@ impl InputEmulator {
     println!("IE set mouse scroll {direction} {amount}");
   }
 }
-#[napi(object)]
+
+#[napi]
 pub struct AuthRequest {}
 
 #[napi]
 impl AuthRequest {
-  #[napi(factory)]
-  pub fn is_available() -> bool {
-    println!("AuthRequest.isAvailable()");
-    false
-  }
-
   #[napi(constructor)]
   pub fn new() -> Self {
     println!("AuthRequest constructor");
     AuthRequest {}
+  }
+
+  #[napi]
+  pub fn is_available() -> bool {
+    println!("AuthRequest.isAvailable()");
+    false
   }
 }
