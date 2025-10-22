@@ -407,23 +407,23 @@ impl InputEmulator {
 
   #[napi]
   pub fn undo(&self) {
-        println!("IE undo");
+    println!("IE undo");
   }
 
   #[napi]
   pub fn select_all(&self) {
-        println!("IE select all");
+    println!("IE select all");
   }
 
   #[napi]
   pub fn held(&self) -> Vec<u16> {
-        println!("IE held");
+    println!("IE held");
     vec![]
   }
 
   #[napi]
   pub fn press_chars(&self, text: String) {
-        println!("IE press chars '{text}'");
+    println!("IE press chars '{text}'");
   }
 
   #[napi]
@@ -433,58 +433,59 @@ impl InputEmulator {
 
   #[napi]
   pub fn press_then_release_key(key: Vec<i32>) {
-        println!("IE press then release key {key:?}");
+    println!("IE press then release key {key:?}");
   }
 
   #[napi]
   pub fn release_chars(&self, text: String) {
-        println!("IE release chars '{text}'");
+    println!("IE release chars '{text}'");
   }
 
   #[napi]
   pub fn release_key(&self, key: u32) {
-        println!("IE release key {key}");
+    println!("IE release key {key}");
   }
 
   #[napi]
   pub fn set_button_click(&self, button: i32) {
-        println!("IE set button click {button}");
+    println!("IE set button click {button}");
   }
 
   #[napi]
   pub fn set_button_toggle(&self, button: i32) {
-        println!("IE set button toggle {button}");
+    println!("IE set button toggle {button}");
   }
 
   #[napi]
   pub fn get_mouse_position(&self) -> MousePosition {
-        println!("IE get mouse position");
+    println!("IE get mouse position");
     MousePosition { x: 0, y: 0 }
   }
 
   #[napi]
   pub fn type_text(&self, text: String) {
-        println!("IE type text '{text}'");
+    println!("IE type text '{text}'");
   }
 
   #[napi]
   pub fn set_mouse_scroll(&self, direction: i32, amount: i32) {
-        println!("IE set mouse scroll {direction} {amount}");
+    println!("IE set mouse scroll {direction} {amount}");
   }
+}
 #[napi(object)]
-   pub struct AuthRequest {}
-   
-   #[napi]
-   impl AuthRequest {
-     #[napi(factory)]
-     pub fn is_available() -> bool {
-       println!("AuthRequest.isAvailable()");
-       false
-     }
-     
-     #[napi(constructor)]
-     pub fn new() -> Self {
-       println!("AuthRequest constructor");
-       AuthRequest {}
-     }
+pub struct AuthRequest {}
+
+#[napi]
+impl AuthRequest {
+  #[napi(factory)]
+  pub fn is_available() -> bool {
+    println!("AuthRequest.isAvailable()");
+    false
+  }
+
+  #[napi(constructor)]
+  pub fn new() -> Self {
+    println!("AuthRequest constructor");
+    AuthRequest {}
+  }
 }
