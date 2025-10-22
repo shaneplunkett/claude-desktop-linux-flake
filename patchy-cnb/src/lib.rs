@@ -471,4 +471,20 @@ impl InputEmulator {
   pub fn set_mouse_scroll(&self, direction: i32, amount: i32) {
         println!("IE set mouse scroll {direction} {amount}");
   }
+#[napi(object)]
+   pub struct AuthRequest {}
+   
+   #[napi]
+   impl AuthRequest {
+     #[napi(factory)]
+     pub fn is_available() -> bool {
+       println!("AuthRequest.isAvailable()");
+       false
+     }
+     
+     #[napi(constructor)]
+     pub fn new() -> Self {
+       println!("AuthRequest constructor");
+       AuthRequest {}
+     }
 }
